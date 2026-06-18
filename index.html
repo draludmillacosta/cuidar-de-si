@@ -7,432 +7,479 @@
 <meta name="description" content="Garanta sua vaga no Encontro Especial Cuidar de Si — 07 de julho de 2026, Porto Belo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --verde: #1A5C3A;
-    --verde-claro: #E8F0EB;
-    --verde-medio: #2d7a52;
-    --dourado: #8B6914;
-    --dourado-claro: #F5ECD7;
-    --dourado-borda: #D4A847;
-    --bege: #FAF8F4;
-    --bege-escuro: #F0EBE1;
-    --texto: #2C2C2A;
-    --texto-secundario: #5F5E5A;
-    --borda: rgba(0,0,0,0.1);
-    --radius: 10px;
-    --radius-lg: 16px;
-  }
+:root {
+  --bege:       #FAF6F0;
+  --bege-medio: #F0E9DC;
+  --bege-escuro:#E5D9C8;
+  --dourado:    #8B6914;
+  --dourado-claro: #D4A847;
+  --dourado-bg: #FDF5E4;
+  --verde:      #1A5C3A;
+  --texto:      #3A2E1E;
+  --texto-sec:  #7A6A55;
+  --borda:      rgba(139,105,20,0.2);
+  --radius:     10px;
+  --radius-lg:  18px;
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--bege);
+  color: var(--texto);
+  min-height: 100vh;
+  line-height: 1.6;
+}
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bege);
-    color: var(--texto);
-    min-height: 100vh;
-    line-height: 1.6;
-  }
+/* HERO */
+.hero {
+  background: var(--bege-medio);
+  padding: 3rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--borda);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(212,168,71,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(212,168,71,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-  /* HERO */
-  .hero {
-    background: var(--verde);
-    padding: 3rem 1.5rem 2.5rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 0%, rgba(139,105,20,0.18) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--dourado-borda);
-    border: 0.5px solid var(--dourado-borda);
-    border-radius: 20px;
-    padding: 4px 16px;
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 400;
-    color: #fff;
-    line-height: 1.05;
-    margin-bottom: .75rem;
-    letter-spacing: -.01em;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--dourado-borda);
-  }
-  .hero-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.7);
-    max-width: 400px;
-    margin: 0 auto 2rem;
-  }
-  .hero-info {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .hero-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255,255,255,0.1);
-    border: 0.5px solid rgba(255,255,255,0.2);
-    border-radius: 20px;
-    padding: 6px 14px;
-    font-size: 13px;
-    color: #fff;
-  }
-  .hero-pill svg { width: 14px; height: 14px; opacity: .7; flex-shrink: 0; }
+.hero-logo {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  margin-bottom: 1rem;
+}
 
-  /* CONTAINER */
-  .container {
-    max-width: 620px;
-    margin: 0 auto;
-    padding: 0 1.25rem 4rem;
-  }
+.ornamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+.ornamento::before,
+.ornamento::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dourado-claro));
+}
+.ornamento::after {
+  background: linear-gradient(90deg, var(--dourado-claro), transparent);
+}
+.ornamento-sym {
+  color: var(--dourado-claro);
+  font-size: 16px;
+  line-height: 1;
+}
 
-  /* CARD FORMULÁRIO */
-  .form-card {
-    background: #fff;
-    border: 0.5px solid var(--borda);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    margin-top: -1.5rem;
-    position: relative;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-  }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 9vw, 5.5rem);
+  font-weight: 400;
+  color: var(--verde);
+  line-height: 1;
+  margin-bottom: .5rem;
+  letter-spacing: -.01em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--dourado);
+}
+.hero-sub {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--texto-sec);
+  max-width: 360px;
+  margin: 0 auto 2rem;
+  letter-spacing: .03em;
+}
 
-  /* SEÇÕES */
-  .section { margin-bottom: 2rem; }
-  .section:last-of-type { margin-bottom: 1.5rem; }
+.hero-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 30px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--texto);
+}
+.hero-pill svg { width: 13px; height: 13px; color: var(--dourado); flex-shrink: 0; }
 
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1rem;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--bege-escuro);
-  }
-  .section-num {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--verde);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .section-title {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--verde);
-  }
+/* CONTAINER */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
 
-  /* CAMPOS */
-  .field { margin-bottom: .9rem; }
-  .field label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--texto-secundario);
-    margin-bottom: 5px;
-  }
-  .field input,
-  .field textarea {
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: var(--texto);
-    background: var(--bege);
-    border: 1px solid var(--borda);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    outline: none;
-    transition: border-color .15s, box-shadow .15s;
-    -webkit-appearance: none;
-  }
-  .field input:focus,
-  .field textarea:focus {
-    border-color: var(--verde);
-    box-shadow: 0 0 0 3px rgba(26,92,58,0.1);
-    background: #fff;
-  }
-  .field textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+/* CARD */
+.form-card {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  margin-top: -1.5rem;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(139,105,20,0.08);
+}
 
-  /* DIFICULDADES */
-  .hint { font-size: 13px; color: var(--texto-secundario); margin-bottom: 12px; }
-  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .diff-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 12px;
-    background: var(--bege);
-    border: 1px solid var(--borda);
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: border-color .15s, background .15s;
-    user-select: none;
-  }
-  .diff-item:hover { border-color: rgba(26,92,58,0.3); }
-  .diff-item.checked {
-    border-color: var(--verde);
-    background: var(--verde-claro);
-  }
-  .diff-item input[type=checkbox] {
-    width: 16px; height: 16px;
-    accent-color: var(--verde);
-    flex-shrink: 0;
-    margin-top: 1px;
-    cursor: pointer;
-  }
-  .diff-item label {
-    font-size: 13px;
-    color: var(--texto);
-    cursor: pointer;
-    line-height: 1.35;
-    margin: 0;
-    font-weight: 400;
-  }
+/* SEÇÕES */
+.section { margin-bottom: 2rem; }
 
-  /* PILARES */
-  .pillar-list { display: flex; flex-direction: column; gap: 8px; }
-  .pillar-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 14px;
-    background: var(--bege);
-    border: 1px solid var(--borda);
-    border-radius: var(--radius);
-  }
-  .pillar-num {
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: var(--verde);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .pillar-info { flex: 1; min-width: 0; }
-  .pillar-name { font-size: 13px; font-weight: 500; color: var(--texto); }
-  .pillar-desc { font-size: 11px; color: var(--texto-secundario); margin-top: 1px; }
-  .pillar-right {
-    display: flex; align-items: center; gap: 10px; flex-shrink: 0;
-  }
-  .pillar-right input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100px;
-    height: 4px;
-    border-radius: 2px;
-    background: #D0D0C8;
-    outline: none;
-    cursor: pointer;
-  }
-  .pillar-right input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--verde);
-    cursor: pointer;
-    border: 2px solid #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-  }
-  .pillar-right input[type=range]::-moz-range-thumb {
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--verde);
-    cursor: pointer;
-    border: 2px solid #fff;
-  }
-  .pillar-score {
-    font-size: 16px;
-    font-weight: 500;
-    min-width: 22px;
-    text-align: right;
-    color: var(--verde);
-    transition: color .2s;
-  }
-  .scale-hint {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: var(--texto-secundario);
-    padding: 0 14px;
-    margin-top: -2px;
-    margin-bottom: 4px;
-  }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--bege-escuro);
+}
+.section-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--dourado-bg);
+  border: 1px solid var(--dourado-claro);
+  color: var(--dourado);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--dourado);
+}
 
-  /* BOTÃO */
-  .btn-submit {
-    width: 100%;
-    background: var(--verde);
-    color: #fff;
-    border: none;
-    border-radius: var(--radius);
-    padding: 15px;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background .15s, transform .1s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: .5rem;
-  }
-  .btn-submit:hover { background: var(--verde-medio); }
-  .btn-submit:active { transform: scale(.99); }
-  .btn-submit:disabled { opacity: .55; cursor: not-allowed; }
-  .btn-submit svg { width: 18px; height: 18px; }
+/* CAMPOS */
+.field { margin-bottom: .9rem; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--texto-sec);
+  margin-bottom: 5px;
+  letter-spacing: .01em;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: var(--texto);
+  background: var(--bege);
+  border: 1px solid var(--bege-escuro);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--dourado-claro);
+  box-shadow: 0 0 0 3px rgba(212,168,71,0.12);
+  background: #fff;
+}
+.field textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-  /* SPINNER */
-  .spinner {
-    width: 16px; height: 16px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin .7s linear infinite;
-    display: none;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+/* DIFICULDADES */
+.hint { font-size: 13px; color: var(--texto-sec); margin-bottom: 12px; font-weight: 300; }
+.diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.diff-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bege);
+  border: 1px solid var(--bege-escuro);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  user-select: none;
+}
+.diff-item:hover { border-color: var(--dourado-claro); }
+.diff-item.checked {
+  border-color: var(--dourado-claro);
+  background: var(--dourado-bg);
+}
+.diff-item input[type=checkbox] {
+  width: 16px; height: 16px;
+  accent-color: var(--dourado);
+  flex-shrink: 0;
+  margin-top: 1px;
+  cursor: pointer;
+}
+.diff-item label {
+  font-size: 13px;
+  color: var(--texto);
+  cursor: pointer;
+  line-height: 1.35;
+  margin: 0;
+  font-weight: 400;
+}
 
-  /* ERRO */
-  .erro-box {
-    display: none;
-    background: #FCEBEB;
-    border: 1px solid #F09595;
-    border-radius: var(--radius);
-    padding: 12px 16px;
-    margin-top: 12px;
-    font-size: 13px;
-    color: #791F1F;
-  }
+/* PILARES */
+.pillar-list { display: flex; flex-direction: column; gap: 8px; }
+.pillar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  background: var(--bege);
+  border: 1px solid var(--bege-escuro);
+  border-radius: var(--radius);
+  transition: border-color .15s;
+}
+.pillar-row:hover { border-color: var(--dourado-claro); }
+.pillar-num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--dourado-bg);
+  border: 1px solid var(--dourado-claro);
+  color: var(--dourado);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.pillar-info { flex: 1; min-width: 0; }
+.pillar-name { font-size: 13px; font-weight: 700; color: var(--texto); }
+.pillar-desc { font-size: 11px; color: var(--texto-sec); margin-top: 1px; font-weight: 300; }
+.pillar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.pillar-right input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bege-escuro);
+  outline: none;
+  cursor: pointer;
+}
+.pillar-right input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--dourado);
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(139,105,20,0.3);
+}
+.pillar-right input[type=range]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--dourado);
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+.pillar-score {
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 22px;
+  text-align: right;
+  color: var(--dourado);
+  transition: color .2s;
+}
+.scale-hint {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--texto-sec);
+  padding: 0 14px;
+  margin-top: -2px;
+  margin-bottom: 4px;
+  font-weight: 300;
+}
 
-  /* NOTA RODAPÉ */
-  .form-footer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--texto-secundario);
-    margin-top: 14px;
-  }
+/* DIVISOR */
+.divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.75rem 0;
+}
+.divisor::before,
+.divisor::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--bege-escuro);
+}
+.divisor-sym { color: var(--dourado-claro); font-size: 14px; }
 
-  /* SUCESSO */
-  .success-screen {
-    display: none;
-    text-align: center;
-    padding: 3rem 1.5rem;
-  }
-  .success-icon {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: var(--verde-claro);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.25rem;
-  }
-  .success-icon svg { width: 32px; height: 32px; color: var(--verde); }
-  .success-screen h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 400;
-    color: var(--verde);
-    margin-bottom: 10px;
-  }
-  .success-screen p {
-    font-size: 15px;
-    color: var(--texto-secundario);
-    line-height: 1.7;
-    max-width: 380px;
-    margin: 0 auto;
-  }
-  .success-screen strong { color: var(--texto); }
+/* BOTÃO */
+.btn-submit {
+  width: 100%;
+  background: var(--verde);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 15px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: .5rem;
+}
+.btn-submit:hover { background: #155030; }
+.btn-submit:active { transform: scale(.99); }
+.btn-submit:disabled { opacity: .55; cursor: not-allowed; }
+.btn-submit svg { width: 16px; height: 16px; }
 
-  /* DIVISOR DOURADO */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--dourado-borda), transparent);
-    margin: 2rem 0;
-    opacity: .4;
-  }
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  display: none;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ASSINATURA */
-  .assinatura {
-    text-align: center;
-    font-size: 12px;
-    color: var(--texto-secundario);
-    padding: 1.5rem 0 0;
-    opacity: .7;
-  }
+.erro-box {
+  display: none;
+  background: #FDF0F0;
+  border: 1px solid #E8B4B4;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #8B2020;
+}
 
-  /* RESPONSIVO */
-  @media (max-width: 480px) {
-    .form-card { padding: 1.5rem 1.25rem; }
-    .grid2 { grid-template-columns: 1fr; }
-    .diff-grid { grid-template-columns: 1fr; }
-    .pillar-right input[type=range] { width: 80px; }
-    .hero h1 { font-size: 3rem; }
-  }
+.form-footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--texto-sec);
+  margin-top: 14px;
+  font-weight: 300;
+  letter-spacing: .03em;
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
-  }
+/* SUCESSO */
+.success-screen {
+  display: none;
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+.success-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--dourado-bg);
+  border: 1px solid var(--dourado-claro);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+.success-icon svg { width: 28px; height: 28px; color: var(--dourado); }
+.success-screen h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--verde);
+  margin-bottom: 10px;
+}
+.success-screen p {
+  font-size: 15px;
+  color: var(--texto-sec);
+  line-height: 1.7;
+  max-width: 380px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+.success-screen strong { color: var(--texto); font-weight: 700; }
+
+/* RODAPÉ */
+.assinatura {
+  text-align: center;
+  font-size: 12px;
+  color: var(--texto-sec);
+  padding: 1.5rem 0 0;
+  opacity: .6;
+  font-weight: 300;
+  letter-spacing: .04em;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .form-card { padding: 1.5rem 1.25rem; }
+  .grid2 { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .pillar-right input[type=range] { width: 75px; }
+  .hero h1 { font-size: 3rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero" role="banner">
-  <div class="hero-badge">Encontro especial</div>
+<header class="hero">
+  <div class="hero-logo">Mayandra Clínica Estética &amp; SPA</div>
+  <div class="ornamento"><span class="ornamento-sym">✦</span></div>
   <h1>Cuidar <em>de Si</em></h1>
   <p class="hero-sub">Um encontro sobre saúde, nutrição, estética e bem-estar feminino</p>
-  <div class="hero-info">
+  <div class="hero-pills">
     <div class="hero-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       07 de julho de 2026
     </div>
     <div class="hero-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       19h
     </div>
     <div class="hero-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-8-6.27-8-11a8 8 0 1 1 16 0c0 4.73-8 11-8 11z"/><circle cx="12" cy="10" r="2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-6.27-8-11a8 8 0 1 1 16 0c0 4.73-8 11-8 11z"/><circle cx="12" cy="10" r="2"/></svg>
       Porto Belo
     </div>
   </div>
 </header>
 
-<!-- FORMULÁRIO -->
-<main class="container" id="main">
+<main class="container">
   <div class="form-card">
-
     <div id="form-area">
 
       <!-- DADOS PESSOAIS -->
@@ -461,7 +508,7 @@
         </div>
       </div>
 
-      <div class="divider"></div>
+      <div class="divisor"><span class="divisor-sym">✦</span></div>
 
       <!-- DIFICULDADES -->
       <div class="section">
@@ -470,7 +517,7 @@
           <div class="section-title">Diagnóstico — principais dificuldades</div>
         </div>
         <p class="hint">Marque as áreas onde você sente mais dificuldade (pode marcar mais de uma):</p>
-        <div class="diff-grid" id="diff-grid">
+        <div class="diff-grid">
           <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="sono"><label>Dormir bem e ter energia</label></div>
           <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="alimentacao"><label>Manter uma alimentação saudável</label></div>
           <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="movimento"><label>Praticar movimento / exercício</label></div>
@@ -484,7 +531,7 @@
         </div>
       </div>
 
-      <div class="divider"></div>
+      <div class="divisor"><span class="divisor-sym">✦</span></div>
 
       <!-- PILARES -->
       <div class="section">
@@ -506,7 +553,7 @@
         </div>
       </div>
 
-      <div class="divider"></div>
+      <div class="divisor"><span class="divisor-sym">✦</span></div>
 
       <!-- EXPECTATIVA -->
       <div class="section">
@@ -520,7 +567,6 @@
         </div>
       </div>
 
-      <!-- BOTÃO -->
       <button class="btn-submit" id="btn-enviar" onclick="enviar()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
         <span id="btn-texto">Confirmar minha inscrição</span>
@@ -529,19 +575,18 @@
       <div class="erro-box" id="erro">Não foi possível enviar. Verifique sua conexão e tente novamente.</div>
       <p class="form-footer">Evento exclusivo para clientes da Mayandra Clínica Estética &amp; SPA</p>
 
-    </div><!-- /form-area -->
+    </div>
 
     <!-- SUCESSO -->
-    <div class="success-screen" id="success-area" aria-live="polite">
+    <div class="success-screen" id="success-area">
       <div class="success-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <h2>Inscrição confirmada!</h2>
       <p>Obrigada, <strong id="nome-ok"></strong>!<br><br>Te esperamos no dia <strong>07 de julho às 19h</strong> em Porto Belo.<br>Em breve você receberá uma mensagem de confirmação no WhatsApp. 🌿</p>
     </div>
 
-  </div><!-- /form-card -->
-
+  </div>
   <p class="assinatura">Realização: Mayandra Clínica Estética &amp; SPA + Ative Bem-Estar</p>
 </main>
 
@@ -552,7 +597,7 @@ function setScore(el, id) {
   const v = parseInt(el.value);
   const el2 = document.getElementById(id);
   el2.textContent = v;
-  el2.style.color = v <= 3 ? '#C0392B' : v <= 6 ? '#D4870A' : '#1A5C3A';
+  el2.style.color = v <= 3 ? '#B85C38' : v <= 6 ? '#C48B2A' : '#1A5C3A';
 }
 
 function toggleDiff(row) {
@@ -574,10 +619,10 @@ function getDificuldades() {
 }
 
 async function enviar() {
-  const nome       = document.getElementById('nome').value.trim();
-  const whats      = document.getElementById('whats').value.trim();
-  const idade      = document.getElementById('idade').value.trim();
-  const email      = document.getElementById('email').value.trim();
+  const nome        = document.getElementById('nome').value.trim();
+  const whats       = document.getElementById('whats').value.trim();
+  const idade       = document.getElementById('idade').value.trim();
+  const email       = document.getElementById('email').value.trim();
   const expectativa = document.getElementById('expectativa').value.trim();
 
   if (!nome)  { alert('Por favor, informe seu nome.'); return; }
