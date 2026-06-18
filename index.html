@@ -1,76 +1,623 @@
-Encontro especial
-Cuidar de Si
-Um encontro sobre saúde, nutrição, estética e bem-estar feminino
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscrição — Encontro Cuidar de Si | Mayandra</title>
+<meta name="description" content="Garanta sua vaga no Encontro Especial Cuidar de Si — 07 de julho de 2026, Porto Belo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-07 de julho de 2026
-19h
-Porto Belo
-1
-Dados pessoais
-Nome completo
-Seu nome completo
-WhatsApp
-(48) 9 0000-0000
-Idade
-Ex: 35
-E-mail
-seu@email.com
-2
-Diagnóstico — principais dificuldades
-Marque as áreas onde você sente mais dificuldade (pode marcar mais de uma):
+  :root {
+    --verde: #1A5C3A;
+    --verde-claro: #E8F0EB;
+    --verde-medio: #2d7a52;
+    --dourado: #8B6914;
+    --dourado-claro: #F5ECD7;
+    --dourado-borda: #D4A847;
+    --bege: #FAF8F4;
+    --bege-escuro: #F0EBE1;
+    --texto: #2C2C2A;
+    --texto-secundario: #5F5E5A;
+    --borda: rgba(0,0,0,0.1);
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
 
-3
-Termômetro dos pilares
-Como você está em cada pilar hoje? Avalie de 1 (muito mal) a 10 (muito bem):
+  html { scroll-behavior: smooth; }
 
-1 — muito mal
-10 — muito bem
-1
-Recarga vital
-Sono e recuperação
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bege);
+    color: var(--texto);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
 
-5
-2
-Nutrição possível
-Alimentação no dia a dia
+  /* HERO */
+  .hero {
+    background: var(--verde);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 0%, rgba(139,105,20,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--dourado-borda);
+    border: 0.5px solid var(--dourado-borda);
+    border-radius: 20px;
+    padding: 4px 16px;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: .75rem;
+    letter-spacing: -.01em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--dourado-borda);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+  .hero-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hero-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #fff;
+  }
+  .hero-pill svg { width: 14px; height: 14px; opacity: .7; flex-shrink: 0; }
 
-5
-3
-Movimento consciente
-Atividade física e vitalidade
+  /* CONTAINER */
+  .container {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
 
-5
-4
-Equilíbrio emocional
-Emoções e estresse
+  /* CARD FORMULÁRIO */
+  .form-card {
+    background: #fff;
+    border: 0.5px solid var(--borda);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-top: -1.5rem;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
 
-5
-5
-Relações e ambientes
-Conexões e espaços favoráveis
+  /* SEÇÕES */
+  .section { margin-bottom: 2rem; }
+  .section:last-of-type { margin-bottom: 1.5rem; }
 
-5
-6
-Proteção ativa
-Prevenção e exames em dia
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--bege-escuro);
+  }
+  .section-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--verde);
+  }
 
-5
-7
-Sentido de vida
-Propósito e motivação
+  /* CAMPOS */
+  .field { margin-bottom: .9rem; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--texto-secundario);
+    margin-bottom: 5px;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--texto);
+    background: var(--bege);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+    -webkit-appearance: none;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgba(26,92,58,0.1);
+    background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-5
-8
-Gestão da vida real
-Rotina e organização
+  /* DIFICULDADES */
+  .hint { font-size: 13px; color: var(--texto-secundario); margin-bottom: 12px; }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .diff-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bege);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+    user-select: none;
+  }
+  .diff-item:hover { border-color: rgba(26,92,58,0.3); }
+  .diff-item.checked {
+    border-color: var(--verde);
+    background: var(--verde-claro);
+  }
+  .diff-item input[type=checkbox] {
+    width: 16px; height: 16px;
+    accent-color: var(--verde);
+    flex-shrink: 0;
+    margin-top: 1px;
+    cursor: pointer;
+  }
+  .diff-item label {
+    font-size: 13px;
+    color: var(--texto);
+    cursor: pointer;
+    line-height: 1.35;
+    margin: 0;
+    font-weight: 400;
+  }
 
-5
-4
-Expectativa para o encontro
-O que você espera levar desse encontro? Pode escrever à vontade:
-Compartilhe sua expectativa, o que mais te motivou a participar, ou o que você gostaria de mudar na sua vida...
+  /* PILARES */
+  .pillar-list { display: flex; flex-direction: column; gap: 8px; }
+  .pillar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    background: var(--bege);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+  }
+  .pillar-num {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .pillar-info { flex: 1; min-width: 0; }
+  .pillar-name { font-size: 13px; font-weight: 500; color: var(--texto); }
+  .pillar-desc { font-size: 11px; color: var(--texto-secundario); margin-top: 1px; }
+  .pillar-right {
+    display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  }
+  .pillar-right input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+    background: #D0D0C8;
+    outline: none;
+    cursor: pointer;
+  }
+  .pillar-right input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--verde);
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  .pillar-right input[type=range]::-moz-range-thumb {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--verde);
+    cursor: pointer;
+    border: 2px solid #fff;
+  }
+  .pillar-score {
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 22px;
+    text-align: right;
+    color: var(--verde);
+    transition: color .2s;
+  }
+  .scale-hint {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--texto-secundario);
+    padding: 0 14px;
+    margin-top: -2px;
+    margin-bottom: 4px;
+  }
 
-Confirmar minha inscrição
-Evento exclusivo para clientes da Mayandra Clínica Estética & SPA
+  /* BOTÃO */
+  .btn-submit {
+    width: 100%;
+    background: var(--verde);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: .5rem;
+  }
+  .btn-submit:hover { background: var(--verde-medio); }
+  .btn-submit:active { transform: scale(.99); }
+  .btn-submit:disabled { opacity: .55; cursor: not-allowed; }
+  .btn-submit svg { width: 18px; height: 18px; }
 
-Realização: Mayandra Clínica Estética & SPA + Ative Bem-Estar
+  /* SPINNER */
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    display: none;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ERRO */
+  .erro-box {
+    display: none;
+    background: #FCEBEB;
+    border: 1px solid #F09595;
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #791F1F;
+  }
+
+  /* NOTA RODAPÉ */
+  .form-footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--texto-secundario);
+    margin-top: 14px;
+  }
+
+  /* SUCESSO */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+  .success-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+  .success-icon svg { width: 32px; height: 32px; color: var(--verde); }
+  .success-screen h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--verde);
+    margin-bottom: 10px;
+  }
+  .success-screen p {
+    font-size: 15px;
+    color: var(--texto-secundario);
+    line-height: 1.7;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .success-screen strong { color: var(--texto); }
+
+  /* DIVISOR DOURADO */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--dourado-borda), transparent);
+    margin: 2rem 0;
+    opacity: .4;
+  }
+
+  /* ASSINATURA */
+  .assinatura {
+    text-align: center;
+    font-size: 12px;
+    color: var(--texto-secundario);
+    padding: 1.5rem 0 0;
+    opacity: .7;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 480px) {
+    .form-card { padding: 1.5rem 1.25rem; }
+    .grid2 { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .pillar-right input[type=range] { width: 80px; }
+    .hero h1 { font-size: 3rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="hero-badge">Encontro especial</div>
+  <h1>Cuidar <em>de Si</em></h1>
+  <p class="hero-sub">Um encontro sobre saúde, nutrição, estética e bem-estar feminino</p>
+  <div class="hero-info">
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      07 de julho de 2026
+    </div>
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      19h
+    </div>
+    <div class="hero-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-8-6.27-8-11a8 8 0 1 1 16 0c0 4.73-8 11-8 11z"/><circle cx="12" cy="10" r="2"/></svg>
+      Porto Belo
+    </div>
+  </div>
+</header>
+
+<!-- FORMULÁRIO -->
+<main class="container" id="main">
+  <div class="form-card">
+
+    <div id="form-area">
+
+      <!-- DADOS PESSOAIS -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <div class="section-title">Dados pessoais</div>
+        </div>
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name">
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label for="whats">WhatsApp</label>
+            <input type="tel" id="whats" placeholder="(48) 9 0000-0000" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="idade">Idade</label>
+            <input type="number" id="idade" placeholder="Ex: 35" min="18" max="99">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- DIFICULDADES -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <div class="section-title">Diagnóstico — principais dificuldades</div>
+        </div>
+        <p class="hint">Marque as áreas onde você sente mais dificuldade (pode marcar mais de uma):</p>
+        <div class="diff-grid" id="diff-grid">
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="sono"><label>Dormir bem e ter energia</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="alimentacao"><label>Manter uma alimentação saudável</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="movimento"><label>Praticar movimento / exercício</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="emocional"><label>Gerenciar emoções e estresse</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="relacoes"><label>Relações e ambientes saudáveis</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="prevencao"><label>Manter rotina de prevenção</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="proposito"><label>Encontrar propósito e motivação</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="rotina"><label>Organizar a rotina e o tempo</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="autocuidado"><label>Priorizar o próprio autocuidado</label></div>
+          <div class="diff-item" onclick="toggleDiff(this)"><input type="checkbox" value="autoestima"><label>Autoestima e imagem pessoal</label></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- PILARES -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <div class="section-title">Termômetro dos pilares</div>
+        </div>
+        <p class="hint">Como você está em cada pilar hoje? Avalie de 1 (muito mal) a 10 (muito bem):</p>
+        <div class="scale-hint"><span>1 — muito mal</span><span>10 — muito bem</span></div>
+        <div class="pillar-list">
+          <div class="pillar-row"><div class="pillar-num">1</div><div class="pillar-info"><div class="pillar-name">Recarga vital</div><div class="pillar-desc">Sono e recuperação</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s1')" aria-label="Recarga vital"><div class="pillar-score" id="s1">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">2</div><div class="pillar-info"><div class="pillar-name">Nutrição possível</div><div class="pillar-desc">Alimentação no dia a dia</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s2')" aria-label="Nutrição possível"><div class="pillar-score" id="s2">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">3</div><div class="pillar-info"><div class="pillar-name">Movimento consciente</div><div class="pillar-desc">Atividade física e vitalidade</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s3')" aria-label="Movimento consciente"><div class="pillar-score" id="s3">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">4</div><div class="pillar-info"><div class="pillar-name">Equilíbrio emocional</div><div class="pillar-desc">Emoções e estresse</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s4')" aria-label="Equilíbrio emocional"><div class="pillar-score" id="s4">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">5</div><div class="pillar-info"><div class="pillar-name">Relações e ambientes</div><div class="pillar-desc">Conexões e espaços favoráveis</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s5')" aria-label="Relações e ambientes"><div class="pillar-score" id="s5">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">6</div><div class="pillar-info"><div class="pillar-name">Proteção ativa</div><div class="pillar-desc">Prevenção e exames em dia</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s6')" aria-label="Proteção ativa"><div class="pillar-score" id="s6">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">7</div><div class="pillar-info"><div class="pillar-name">Sentido de vida</div><div class="pillar-desc">Propósito e motivação</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s7')" aria-label="Sentido de vida"><div class="pillar-score" id="s7">5</div></div></div>
+          <div class="pillar-row"><div class="pillar-num">8</div><div class="pillar-info"><div class="pillar-name">Gestão da vida real</div><div class="pillar-desc">Rotina e organização</div></div><div class="pillar-right"><input type="range" min="1" max="10" value="5" step="1" oninput="setScore(this,'s8')" aria-label="Gestão da vida real"><div class="pillar-score" id="s8">5</div></div></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- EXPECTATIVA -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <div class="section-title">Expectativa para o encontro</div>
+        </div>
+        <div class="field">
+          <label for="expectativa">O que você espera levar desse encontro? Pode escrever à vontade:</label>
+          <textarea id="expectativa" placeholder="Compartilhe sua expectativa, o que mais te motivou a participar, ou o que você gostaria de mudar na sua vida..."></textarea>
+        </div>
+      </div>
+
+      <!-- BOTÃO -->
+      <button class="btn-submit" id="btn-enviar" onclick="enviar()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <span id="btn-texto">Confirmar minha inscrição</span>
+        <div class="spinner" id="spinner"></div>
+      </button>
+      <div class="erro-box" id="erro">Não foi possível enviar. Verifique sua conexão e tente novamente.</div>
+      <p class="form-footer">Evento exclusivo para clientes da Mayandra Clínica Estética &amp; SPA</p>
+
+    </div><!-- /form-area -->
+
+    <!-- SUCESSO -->
+    <div class="success-screen" id="success-area" aria-live="polite">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Inscrição confirmada!</h2>
+      <p>Obrigada, <strong id="nome-ok"></strong>!<br><br>Te esperamos no dia <strong>07 de julho às 19h</strong> em Porto Belo.<br>Em breve você receberá uma mensagem de confirmação no WhatsApp. 🌿</p>
+    </div>
+
+  </div><!-- /form-card -->
+
+  <p class="assinatura">Realização: Mayandra Clínica Estética &amp; SPA + Ative Bem-Estar</p>
+</main>
+
+<script>
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzKK2-lNHwrDV9RIsgeYHQ5haz_a_cSj4BFcPuzlDTgJnV8DrjiTh8k0xpcmJmribd6cg/exec';
+
+function setScore(el, id) {
+  const v = parseInt(el.value);
+  const el2 = document.getElementById(id);
+  el2.textContent = v;
+  el2.style.color = v <= 3 ? '#C0392B' : v <= 6 ? '#D4870A' : '#1A5C3A';
+}
+
+function toggleDiff(row) {
+  const cb = row.querySelector('input[type=checkbox]');
+  cb.checked = !cb.checked;
+  row.classList.toggle('checked', cb.checked);
+}
+
+function getPilares() {
+  const ids   = ['s1','s2','s3','s4','s5','s6','s7','s8'];
+  const nomes = ['Recarga vital','Nutricao possivel','Movimento consciente','Equilibrio emocional','Relacoes e ambientes','Protecao ativa','Sentido de vida','Gestao da vida real'];
+  const obj = {};
+  ids.forEach((id, i) => obj[nomes[i]] = document.getElementById(id).textContent);
+  return obj;
+}
+
+function getDificuldades() {
+  return Array.from(document.querySelectorAll('#diff-grid input[type=checkbox]:checked')).map(cb => cb.value);
+}
+
+async function enviar() {
+  const nome       = document.getElementById('nome').value.trim();
+  const whats      = document.getElementById('whats').value.trim();
+  const idade      = document.getElementById('idade').value.trim();
+  const email      = document.getElementById('email').value.trim();
+  const expectativa = document.getElementById('expectativa').value.trim();
+
+  if (!nome)  { alert('Por favor, informe seu nome.'); return; }
+  if (!whats) { alert('Por favor, informe seu WhatsApp.'); return; }
+
+  const btn     = document.getElementById('btn-enviar');
+  const texto   = document.getElementById('btn-texto');
+  const spinner = document.getElementById('spinner');
+  const erroDiv = document.getElementById('erro');
+
+  btn.disabled = true;
+  texto.textContent = 'Enviando...';
+  spinner.style.display = 'block';
+  erroDiv.style.display = 'none';
+
+  const payload = {
+    nome, whatsapp: whats, idade, email,
+    dificuldades: getDificuldades(),
+    pilares: getPilares(),
+    expectativa
+  };
+
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    document.getElementById('nome-ok').textContent = nome.split(' ')[0];
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('success-area').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    erroDiv.style.display = 'block';
+    btn.disabled = false;
+    texto.textContent = 'Confirmar minha inscrição';
+    spinner.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
