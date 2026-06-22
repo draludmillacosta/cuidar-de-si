@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação dos 8 Pilares · Método Ative Bem-Estar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF5EC;
+    --card:#FFFFFF;
+    --ink:#3E3527;
+    --ink-soft:#7A6F5C;
+    --gold:#C3973F;
+    --gold-deep:#9C7530;
+    --green:#56684A;
+    --green-deep:#3B4B33;
+    --line:#E6DAC2;
+    --shadow: 0 18px 50px -20px rgba(60,48,20,0.25);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(195,151,63,0.10), transparent 45%),
+      radial-gradient(circle at 88% 92%, rgba(86,104,74,0.10), transparent 45%);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:760px;margin:0 auto;padding:64px 24px 100px;}
+
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:12px;
+    color:var(--gold-deep);
+    font-weight:500;
+    text-align:center;
+    margin-bottom:14px;
+  }
+
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:clamp(32px,6vw,46px);
+    text-align:center;
+    margin:0 0 18px;
+    color:var(--green-deep);
+    letter-spacing:.01em;
+  }
+
+  .intro{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:16px;
+    max-width:560px;
+    margin:0 auto 12px;
+  }
+
+  .intro strong{color:var(--ink);font-weight:500;}
+
+  .rule{
+    width:64px;height:1px;background:var(--gold);
+    margin:32px auto;opacity:.7;
+  }
+
+  .scale-key{
+    display:flex;justify-content:center;gap:22px;
+    font-size:12.5px;color:var(--ink-soft);margin-bottom:48px;flex-wrap:wrap;
+  }
+  .scale-key span b{color:var(--ink);}
+
+  form{display:flex;flex-direction:column;gap:18px;}
+
+  .pillar-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 28px 24px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+  }
+  .pillar-card::before{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,var(--wedge-color),transparent 140%);
+  }
+
+  .pillar-head{
+    display:flex;align-items:baseline;gap:12px;margin-bottom:6px;
+  }
+  .pillar-num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:14px;color:var(--gold-deep);
+    font-weight:600;letter-spacing:.05em;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .pillar-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:21px;font-weight:600;color:var(--ink);
+  }
+
+  .pillar-question{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:4px 0 18px;
+  }
+
+  .slider-row{
+    display:flex;align-items:center;gap:16px;
+  }
+
+  input[type=range]{
+    flex:1;
+    -webkit-appearance:none;
+    appearance:none;
+    height:6px;
+    border-radius:6px;
+    background:linear-gradient(90deg, var(--wedge-color) var(--fill,50%), #EFE6D2 var(--fill,50%));
+    outline:none;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:22px;height:22px;border-radius:50%;
+    background:var(--card);
+    border:3px solid var(--wedge-color);
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(0,0,0,.18);
+  }
+  input[type=range]::-moz-range-thumb{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--card);
+    border:3px solid var(--wedge-color);
+    cursor:pointer;
+  }
+
+  .val-badge{
+    font-family:'Cormorant Garamond', serif;
+    font-size:20px;font-weight:600;
+    color:var(--green-deep);
+    width:46px;text-align:center;
+    background:#F3EEE1;
+    border-radius:10px;
+    padding:5px 0;
+    flex-shrink:0;
+  }
+
+  .submit-row{margin-top:18px;text-align:center;}
+  button.primary{
+    font-family:'Jost', sans-serif;
+    font-size:15px;letter-spacing:.06em;text-transform:uppercase;
+    font-weight:500;
+    background:var(--green-deep);
+    color:#F8F3E8;
+    border:none;
+    padding:16px 38px;
+    border-radius:30px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, background .2s ease;
+  }
+  button.primary:hover{background:var(--green);transform:translateY(-1px);}
+  button.primary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+
+  .hint{font-size:12.5px;color:var(--ink-soft);margin-top:10px;}
+
+  /* ===== Resultado ===== */
+  #resultado{
+    display:none;
+    margin-top:64px;
+  }
+  .result-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:42px 30px 36px;
+    box-shadow:var(--shadow);
+    text-align:center;
+  }
+  .result-eyebrow{
+    text-transform:uppercase;letter-spacing:.2em;font-size:12px;
+    color:var(--gold-deep);font-weight:500;margin-bottom:10px;
+  }
+  .result-title{
+    font-family:'Cormorant Garamond', serif;font-size:30px;font-weight:600;
+    color:var(--green-deep);margin:0 0 4px;
+  }
+  .result-sub{color:var(--ink-soft);font-size:14.5px;margin-bottom:18px;}
+
+  svg#wheel{width:100%;max-width:430px;height:auto;display:block;margin:0 auto;}
+
+  .legend{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px 18px;
+    margin-top:28px;
+    text-align:left;
+  }
+  .legend-item{
+    display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink-soft);
+  }
+  .legend-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
+  .legend-item b{color:var(--ink);font-weight:500;margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:16px;}
+
+  .focus-box{
+    margin-top:34px;
+    background:#F6F0E2;
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 26px 28px;
+    text-align:left;
+  }
+  .focus-box .tag{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    padding:4px 10px;border-radius:20px;margin-bottom:12px;font-weight:500;
+  }
+  .focus-box h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:24px;margin:0 0 8px;color:var(--green-deep);
+  }
+  .focus-box p{margin:0 0 14px;color:var(--ink-soft);font-size:14.5px;}
+  .focus-box p.q{color:var(--ink);font-style:italic;font-size:15px;}
+
+  textarea#compromisso{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    font-family:'Jost', sans-serif;
+    font-size:14.5px;
+    resize:vertical;
+    min-height:64px;
+    background:#fff;
+    color:var(--ink);
+  }
+  textarea#compromisso:focus{outline:2px solid var(--gold);}
+
+  .examples{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+
+  .reset-row{margin-top:30px;}
+  button.secondary{
+    background:none;border:1px solid var(--ink-soft);
+    color:var(--ink-soft);
+    font-family:'Jost', sans-serif;
+    font-size:13px;letter-spacing:.05em;text-transform:uppercase;
+    padding:10px 22px;border-radius:24px;cursor:pointer;
+  }
+  button.secondary:hover{border-color:var(--green-deep);color:var(--green-deep);}
+
+  footer{
+    text-align:center;margin-top:70px;
+    font-size:12.5px;color:var(--ink-soft);
+    letter-spacing:.03em;
+  }
+
+  @media (max-width:520px){
+    .wrap{padding:44px 16px 80px;}
+    .pillar-card{padding:20px 18px;}
+    .legend{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    button.primary{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <p class="eyebrow">Método Ative Bem-Estar</p>
+  <h1>Avaliação dos 8 Pilares</h1>
+  <p class="intro">Esta avaliação não é uma prova, nem um motivo para culpa — é um convite para olhar para si com <strong>honestidade, consciência e gentileza</strong>. Ao final, você verá sua Roda do Bem-Estar e poderá escolher um micro-hábito para os próximos 7 dias.</p>
+
+  <div class="rule"></div>
+
+  <p class="scale-key">
+    <span><b>0</b> · muito fragilizado</span>
+    <span><b>5</b> · regular, precisa de atenção</span>
+    <span><b>10</b> · bem cuidado e consistente</span>
+  </p>
+
+  <form id="form-pilares">
+    <div class="pillar-card" id="identificacao-card" style="--wedge-color:var(--gold);">
+      <div class="pillar-head">
+        <span class="pillar-title">Identificação (opcional)</span>
+      </div>
+      <p class="pillar-question">Se quiser receber retorno personalizado, deixe seu nome e e-mail. Pode deixar em branco se preferir responder de forma anônima.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <input type="text" id="campo-nome" placeholder="Nome" style="flex:1;min-width:160px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);">
+        <input type="email" id="campo-email" placeholder="E-mail" style="flex:1;min-width:160px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);">
+      </div>
+    </div>
+    <!-- pillar cards injected by JS -->
+  </form>
+
+  <div class="submit-row">
+    <button class="primary" type="submit" form="form-pilares">Ver meu resultado</button>
+    <p class="hint">Sem certo ou errado — responda como você se sente hoje.</p>
+  </div>
+
+  <section id="resultado">
+    <div class="result-card">
+      <p class="result-eyebrow">Sua Roda do Bem-Estar</p>
+      <h2 class="result-title" id="result-headline">Resultado</h2>
+      <p class="result-sub" id="result-sub"></p>
+
+      <svg id="wheel" viewBox="0 0 380 380"></svg>
+
+      <div class="legend" id="legend"></div>
+
+      <div class="focus-box">
+        <span class="tag">Pilar prioritário</span>
+        <h3 id="focus-title"></h3>
+        <p class="q" id="focus-question"></p>
+        <p class="examples" id="focus-examples"></p>
+        <label for="compromisso" style="display:block;font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;">Meu compromisso para os próximos 7 dias:</label>
+        <textarea id="compromisso" placeholder="Eu me comprometo a ..., durante os próximos 7 dias, de forma simples e possível."></textarea>
+        <div style="margin-top:16px;text-align:center;">
+          <button class="primary" type="button" id="btn-enviar" style="padding:13px 30px;font-size:13.5px;">Enviar minha resposta</button>
+          <p class="hint" id="envio-status" aria-live="polite" style="margin-top:10px;"></p>
+        </div>
+      </div>
+
+      <div class="reset-row">
+        <button class="secondary" type="button" id="btn-reset">Refazer avaliação</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>Dra. Ludmilla Costa · Método Ative Bem-Estar</footer>
+
+</div>
+
+<script>
+  // ⬇️ Cole aqui a URL do seu Apps Script "Web app" (veja instruções no fim do arquivo)
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz2kja-4drFLovm_qS69FaN1Vc458p_6RiVGHmghu0Sv9PPdkcNx5eSnAaBcM_DaWYb/exec";
+
+  let ultimoResultado = null; // guarda os dados da última avaliação para o envio
+
+  const PILARES = [
+    {
+      title: "Sono e recuperação",
+      question: "Tenho dormido bem? Acordo com energia, ou já acordo com cansaço?",
+      reflection: "O que mais tem atrapalhado meu sono hoje?",
+      examples: "Ex.: dormir 30 minutos mais cedo, reduzir telas antes de dormir, criar um ritual noturno.",
+      color: "#C3973F"
+    },
+    {
+      title: "Alimentação",
+      question: "Minha alimentação tem me dado energia ou me deixado mais cansado(a)?",
+      reflection: "Qual escolha alimentar mais tem impactado minha energia?",
+      examples: "Ex.: incluir proteína no café da manhã, acrescentar vegetais em uma refeição.",
+      color: "#B98A4A"
+    },
+    {
+      title: "Movimento",
+      question: "Tenho movimentado meu corpo com frequência e disposição?",
+      reflection: "O que tem me impedido de movimentar mais meu corpo?",
+      examples: "Ex.: caminhar 10 minutos, alongar ao acordar, levantar-se a cada período prolongado sentado(a).",
+      color: "#A28A4F"
+    },
+    {
+      title: "Hidratação",
+      question: "Tenho bebido água ao longo do dia de forma adequada?",
+      reflection: "Em quais momentos do dia eu mais esqueço de beber água?",
+      examples: "Ex.: beber um copo de água ao acordar, deixar uma garrafa visível.",
+      color: "#8E9460"
+    },
+    {
+      title: "Saúde emocional e manejo do estresse",
+      question: "Tenho conseguido lidar bem com o estresse e reconhecer minhas emoções?",
+      reflection: "O que mais tem drenado minha energia emocional?",
+      examples: "Ex.: pausa de um minuto para respirar, escrever o que está sentindo, praticar gratidão.",
+      color: "#79925A"
+    },
+    {
+      title: "Conexões e relacionamentos",
+      question: "Tenho relações que me apoiam e me fortalecem?",
+      reflection: "Minhas relações têm me nutrido ou me esgotado?",
+      examples: "Ex.: mandar mensagem para alguém querido, fazer uma refeição sem celular, pedir ajuda.",
+      color: "#688A55"
+    },
+    {
+      title: "Ambiente e rotina",
+      question: "Minha rotina e meu ambiente favorecem minha saúde?",
+      reflection: "O que no meu ambiente mais dificulta meus hábitos saudáveis?",
+      examples: "Ex.: deixar a garrafa de água à vista, organizar a primeira refeição do dia.",
+      color: "#577356"
+    },
+    {
+      title: "Propósito e sentido de vida",
+      question: "Tenho clareza do motivo pelo qual quero cuidar melhor da minha saúde?",
+      reflection: "Por que cuidar da minha saúde importa nesta fase da minha vida?",
+      examples: "Ex.: escrever uma frase com seu motivo, reservar minutos para refletir sobre seus valores.",
+      color: "#3F5446"
+    }
+  ];
+
+  const form = document.getElementById('form-pilares');
+
+  PILARES.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'pillar-card';
+    card.style.setProperty('--wedge-color', p.color);
+    card.innerHTML = `
+      <div class="pillar-head">
+        <span class="pillar-num">${i+1}</span>
+        <span class="pillar-title">${p.title}</span>
+      </div>
+      <p class="pillar-question">${p.question}</p>
+      <div class="slider-row">
+        <input type="range" min="0" max="10" step="1" value="5" id="pilar-${i}" style="--fill:50%">
+        <span class="val-badge" id="val-${i}">5</span>
+      </div>
+    `;
+    form.appendChild(card);
+  });
+
+  // live slider fill + value badge
+  PILARES.forEach((p, i) => {
+    const slider = document.getElementById(`pilar-${i}`);
+    const badge = document.getElementById(`val-${i}`);
+    slider.addEventListener('input', () => {
+      badge.textContent = slider.value;
+      slider.style.setProperty('--fill', (slider.value/10*100) + '%');
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const valores = PILARES.map((p, i) => parseInt(document.getElementById(`pilar-${i}`).value, 10));
+    renderResultado(valores);
+    document.getElementById('resultado').style.display = 'block';
+    document.getElementById('resultado').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('btn-reset').addEventListener('click', () => {
+    document.getElementById('resultado').style.display = 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  function renderResultado(valores) {
+    const cx = 190, cy = 190, rMax = 138, n = 8;
+    const angleStep = (2*Math.PI)/n;
+
+    function point(angleIdx, r) {
+      const angle = angleIdx * angleStep - Math.PI/2; // start at top
+      return [cx + r*Math.cos(angle), cy + r*Math.sin(angle)];
+    }
+
+    let svg = '';
+
+    // background grid circles (2,4,6,8,10)
+    [2,4,6,8,10].forEach(v => {
+      const r = (v/10)*rMax;
+      svg += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#E6DAC2" stroke-width="1" stroke-dasharray="${v===10?'0':'3,4'}"/>`;
+    });
+
+    // wedges (value)
+    PILARES.forEach((p, i) => {
+      const val = valores[i];
+      const r = Math.max((val/10)*rMax, 4);
+      const [x1,y1] = point(i, r);
+      const [x2,y2] = point(i+1, r);
+      svg += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 0,1 ${x2},${y2} Z" fill="${p.color}" fill-opacity="0.78" stroke="${p.color}" stroke-width="1"/>`;
+    });
+
+    // axis lines + labels
+    PILARES.forEach((p, i) => {
+      const [lx,ly] = point(i, rMax);
+      const [bx,by] = point(i, rMax+1);
+      svg += `<line x1="${cx}" y1="${cy}" x2="${lx}" y2="${ly}" stroke="#E6DAC2" stroke-width="1"/>`;
+    });
+
+    svg += `<circle cx="${cx}" cy="${cy}" r="2.5" fill="#3E3527"/>`;
+
+    document.getElementById('wheel').innerHTML = svg;
+
+    // legend
+    const legend = document.getElementById('legend');
+    legend.innerHTML = PILARES.map((p,i) => `
+      <div class="legend-item">
+        <span class="legend-dot" style="background:${p.color}"></span>
+        ${p.title}
+        <b>${valores[i]}</b>
+      </div>
+    `).join('');
+
+    // headline / focus
+    const media = (valores.reduce((a,b)=>a+b,0)/n);
+    const minVal = Math.min(...valores);
+    const minIdx = valores.indexOf(minVal);
+    const focus = PILARES[minIdx];
+
+    document.getElementById('result-headline').textContent = `Média geral: ${media.toFixed(1)} / 10`;
+    document.getElementById('result-sub').textContent = 'Cada fatia representa um pilar — quanto maior, mais fortalecido ele está hoje.';
+
+    document.getElementById('focus-title').textContent = `${focus.title} (${minVal}/10)`;
+    document.getElementById('focus-question').textContent = focus.reflection;
+    document.getElementById('focus-examples').textContent = focus.examples;
+    document.getElementById('compromisso').value = '';
+    document.getElementById('compromisso').placeholder = `Eu me comprometo a ..., durante os próximos 7 dias, de forma simples e possível, para fortalecer "${focus.title}".`;
+
+    document.getElementById('envio-status').textContent = '';
+    document.getElementById('btn-enviar').disabled = false;
+    document.getElementById('btn-enviar').textContent = 'Enviar minha resposta';
+
+    ultimoResultado = {
+      valores,
+      media: media.toFixed(1),
+      pilarPrioritario: focus.title
+    };
+  }
+
+  document.getElementById('btn-enviar').addEventListener('click', () => {
+    if (!ultimoResultado) return;
+
+    if (!SCRIPT_URL || SCRIPT_URL.includes('COLE_AQUI')) {
+      document.getElementById('envio-status').textContent = 'Formulário ainda não conectado à planilha — configure a URL do Apps Script no código.';
+      return;
+    }
+
+    const btn = document.getElementById('btn-enviar');
+    const status = document.getElementById('envio-status');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    status.textContent = '';
+
+    const payload = {
+      timestamp: new Date().toISOString(),
+      nome: document.getElementById('campo-nome').value.trim(),
+      email: document.getElementById('campo-email').value.trim(),
+      sono: ultimoResultado.valores[0],
+      alimentacao: ultimoResultado.valores[1],
+      movimento: ultimoResultado.valores[2],
+      hidratacao: ultimoResultado.valores[3],
+      saudeEmocional: ultimoResultado.valores[4],
+      conexoes: ultimoResultado.valores[5],
+      ambienteRotina: ultimoResultado.valores[6],
+      proposito: ultimoResultado.valores[7],
+      media: ultimoResultado.media,
+      pilarPrioritario: ultimoResultado.pilarPrioritario,
+      compromisso: document.getElementById('compromisso').value.trim()
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+      .then(() => {
+        btn.textContent = 'Resposta enviada ✓';
+        status.textContent = 'Obrigada por compartilhar! Sua resposta foi registrada.';
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Tentar novamente';
+        status.textContent = 'Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
+      });
+  });
+</script>
+
+</body>
+</html>
