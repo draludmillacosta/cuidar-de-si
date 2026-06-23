@@ -306,6 +306,7 @@
       <div style="display:flex;gap:14px;flex-wrap:wrap;">
         <input type="text" id="campo-nome" placeholder="Nome" style="flex:1;min-width:160px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);">
         <input type="email" id="campo-email" placeholder="E-mail" style="flex:1;min-width:160px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);">
+        <input type="tel" id="campo-whatsapp" placeholder="WhatsApp (DDD + número)" style="flex:1;min-width:160px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);">
       </div>
     </div>
     <!-- pillar cards injected by JS -->
@@ -548,6 +549,7 @@
       timestamp: new Date().toISOString(),
       nome: document.getElementById('campo-nome').value.trim(),
       email: document.getElementById('campo-email').value.trim(),
+      whatsapp: document.getElementById('campo-whatsapp').value.trim(),
       sono: ultimoResultado.valores[0],
       alimentacao: ultimoResultado.valores[1],
       movimento: ultimoResultado.valores[2],
